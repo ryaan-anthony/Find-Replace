@@ -1,0 +1,41 @@
+<?php
+/**
+ * Form Template
+ * @package WordPress
+ * @sub-package Find/Replace
+ */
+?>
+    <input id="ip-text-find" type="text" placeholder="find" class="regular-text code"/>
+    <input id="ip-text-replace" type="text" placeholder="replace" class="regular-text code"/>
+    <button id="ip-find-replace-go" class="button-primary">GO</button>
+    <p class="description" title="Looks in post_content and meta_value fields, respectively.">
+        Note: This will find and replace all <span style="text-decoration:underline;">values</span> in <strong>posts</strong> and <strong>postmeta</strong> table.
+    </p>
+    <script>
+        jQuery(document).ready(function($){
+            $("#ip-find-replace-go").click(function(e){							
+                var ip_find = $("#ip-text-find").val();
+                var ip_replace = $("#ip-text-replace").val();
+                $("#ip-text-find, #ip-text-replace").val('');
+                if(ip_find.length && ip_replace.length){						
+                    $.ajax({
+                        url: '<?php echo plugins_url('/'.basename(dirname(__file__)).'/ajax.php'); ?>',
+                        type: 'post',
+                        data: { find : ip_find, replace : ip_replace },
+                        success: function(result) {
+                            if(result.length){
+                                result = JSON.parse(result);									
+                                alert( result.found + " items found and replaced." );
+                            } else {
+                                alert('Error: Unknown PHP/SQL issue.');
+                            }
+                        }
+                    });
+                }else{
+                    alert('Error: Empty field(s)');
+                }
+                e.preventDefault();
+                return false;
+            });
+        });
+    </script>
