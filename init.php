@@ -3,7 +3,7 @@
 Plugin Name: Find/Replace
 Description: Find and Replace data in posts and metadata. Serialized data is protected, but objects are ignored.
 Version: 1.0.2
-Author: Inverse Paradox
+Author: Inverse Paradox LLC
 */
 	
 	function ip_include(){
