@@ -22,8 +22,7 @@
 		"found" => $obj->start(array(
 			array( 'options', 'option_value', 'option_id' ),
 			array( 'posts', 'post_content', 'ID' ),
+			array( 'posts', 'guid', 'ID' ),
 			array( 'postmeta', 'meta_value', 'meta_id' )
 		))
 	));
-
-?>

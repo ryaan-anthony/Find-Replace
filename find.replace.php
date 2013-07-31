@@ -124,4 +124,3 @@ class Ip_Find_Replace
 	}
 	
 }
-?>

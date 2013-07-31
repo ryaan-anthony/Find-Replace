@@ -20,4 +20,3 @@ Author: Inverse Paradox LLC
 		);	
 	}
 	add_action( 'admin_init', 'ip_add_settings_field');
-?>
